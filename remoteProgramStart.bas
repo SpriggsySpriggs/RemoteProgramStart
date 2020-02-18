@@ -46,9 +46,8 @@ ELSE
         LINE INPUT "Program to Start: ", args$(2)
     LOOP UNTIL args$(2) <> ""
 END IF
-a = SHELL("PowerShell -Command " + CHR$(34) + "invoke-WmiMethod -ComputerName " + CHR$(34) + args$(0) + CHR$(34) + " -Credential " + CHR$(34) + args$(1) + CHR$(34) + " -EnableAllPrivileges -Class win32_process -Name create -ArgumentList " + CHR$(34) + args$(2) + CHR$(34)) ' + ";exit $LASTEXITCODE")
-'COLOR 15
-'ECHO LTRIM$(STR$(a))
+ECHO "PowerShell -Command " + CHR$(34) + "invoke-WmiMethod -ComputerName \" + CHR$(34) + args$(0) + "\" + CHR$(34) + " -Credential \" + CHR$(34) + args$(1) + "\" + CHR$(34) + " -EnableAllPrivileges -Class win32_process -Name create -ArgumentList \" + CHR$(34) + args$(2) + "\" + CHR$(34)
+a = SHELL("PowerShell -Command " + CHR$(34) + "invoke-WmiMethod -ComputerName \" + CHR$(34) + args$(0) + "\" + CHR$(34) + " -Credential \" + CHR$(34) + args$(1) + "\" + CHR$(34) + " -EnableAllPrivileges -Class win32_process -Name create -ArgumentList \" + CHR$(34) + args$(2) + "\" + CHR$(34))
 
 SUB ClearScreen
     CLS
